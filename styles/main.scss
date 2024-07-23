@@ -1,0 +1,221 @@
+// imports normalize css
+@import "normalize.css";
+
+// imports mixins to this scss file
+@import "variables";
+@import "mixins";
+
+// includes all the mixins
+@include background;
+@include grid;
+@include header;
+@include now_playing;
+@include albums;
+@include tracklist;
+@include media_buttons;
+@include footer;
+
+// desktop screen - 6 columns
+@media screen and (min-width: $tablet_screen) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; // creates 6 columns
+        margin: 25px 50px 0px 50px; // adjusts the left and right spaces of the grid
+    }
+
+    .title {
+        grid-column: 1 / span 6;
+        grid-row: 1 / span 1;
+        letter-spacing: 15px; // adjusts the spaces between the characters in the header title
+    }
+
+    // position of now playing info on grid
+    .now_playing {
+        grid-column: 2 / span 4;
+        grid-row: 4 / span 1;
+    }
+
+    // position of album playing on grid
+    .current_album {
+        grid-column: 2 / span 2;
+        grid-row: 2 / span 2;
+    }
+
+    // position of tracklist on grid
+    .tracklist {
+        grid-column: 4 / span 2;
+        grid-row: 2 / span 2;
+    }
+
+    // position of media buttons on grid
+    .previous {
+        grid-column: 2 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .play {
+        grid-column: 3 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .pause {
+        grid-column: 4 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .next {
+        grid-column: 5 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    // positions of bigger albums on grid
+    .big_album_1 {
+        grid-column: 1 / span 2;
+        grid-row: 7 / span 2;
+    }
+
+    .big_album_2 {
+        grid-column: 5 / span 2;
+        grid-row: 6 / span 2;
+    }
+
+    .footer_info {
+        grid-column: 1 / span 6;
+        grid-row: 9 / span 1;
+    }
+}
+
+// tablet screen - 4 columns
+@media screen and (max-width: $tablet_screen) and (min-width: $mobile_screen) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr; // creates 4 columns
+        margin: 25px 38px 0px 38px; // adjusts the left and right spaces of the grid
+    }
+
+    .title {
+        grid-column: 1 / span 4;
+        grid-row: 1 / span 1;
+        letter-spacing: 10px; // adjusts the spaces between the characters in the header title
+    }
+
+    .now_playing {
+        grid-column: 1 / span 4;
+        grid-row: 4 / span 1;
+    }
+
+    .current_album {
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 2;
+    }
+
+    .tracklist {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 2;
+    }
+    
+    .previous {
+        grid-column: 1 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .play {
+        grid-column: 2 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .pause {
+        grid-column: 3 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .next {
+        grid-column: 4 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .big_album_1 {
+        grid-column: 1 / span 2;
+        grid-row: 8 / span 2;
+    }
+
+    .big_album_2 {
+        grid-column: 3 / span 2;
+        grid-row: 6 / span 2;
+    }
+
+    .big_album_3 {
+        grid-column: 3 / span 2;
+        grid-row: 10 / span 2;
+    }
+
+    .big_album_4 {
+        grid-column: 1 / span 2;
+        grid-row: 12 / span 2;
+    }
+    
+    .footer_info {
+        grid-column: 1 / span 4;
+        grid-row: 14 / span 1;
+    }
+}
+
+
+// mobile screen - 2 columns
+@media screen and (max-width: $mobile_screen) {
+    .grid {
+        grid-template-columns: 1fr 1fr; // creates 2 columns
+        margin: 25px 25px 0px 25px; // adjusts the left and right spaces of the grid
+    }
+
+    .title {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 1;
+        letter-spacing: 5px; // adjusts the spaces between the characters in the header title
+    }
+
+    .now_playing {
+        grid-column: 1 / span 2;
+        grid-row: 4 / span 1;
+    }
+
+    .current_album {
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 2;
+    }
+
+    .tracklist {
+        grid-column: 1 / span 2;
+        grid-row: 7 / span 2;
+    }
+
+    // changes the position of tracks from absolute to relative to keep container size
+    .tracks {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .previous {
+        grid-column: 1 / span 1;
+        grid-row: 6 / span 1;
+    }
+
+    .play {
+        grid-column: 2 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .pause {
+        grid-column: 1 / span 1;
+        grid-row: 5 / span 1;
+    }
+
+    .next {
+        grid-column: 2 / span 1;
+        grid-row: 6 / span 1;
+    }
+
+    .footer_info {
+        grid-column: 1 / span 2;
+        grid-row: 19 / span 1;
+    }
+}

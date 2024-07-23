@@ -1,0 +1,209 @@
+// mixin for the format of the page background
+@mixin background {
+        html {
+        background: $page_background; // uses variable $page_background
+        background-repeat: repeat;
+        background-size: contain;
+    }
+}
+
+// mixin for the format of the grid and its items
+@mixin grid {
+    .grid {
+        display: grid;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        background-color: $grid_background; // uses variable $grid_background
+        padding: 20px;
+        grid-gap: 20px;
+    }
+
+    .grid-item {
+        background-color: $grid-item_background; // uses variable $grid-item_background
+        box-shadow: 1px 1px 10px black;
+    }
+}
+
+// mixin for the format of the header title
+@mixin header {
+    .title {
+        font-family: $titles; // uses variable $titles
+        font-size: $title_size; // uses variable $title_size
+        text-align: center;
+        color: white;
+        background-color: black; // seperately makes the grid-item background for the header title a different color than the rest
+    }
+}
+
+// mixin for the format of the now playing title
+@mixin now_playing {
+    .now_playing p {
+        font-family: $info; // uses variable $titles
+        font-size: 2vh;
+        letter-spacing: 10px;
+        padding: 1px;
+        margin: 10px;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+
+    img.music_bars {
+        height: 4vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}
+
+// mixin for the format of the albums and its behavior
+@mixin albums {
+    .album {
+        position: relative; // adjusts to the text when info is shown
+    }
+
+    .current_album {
+        position: relative; // adjusts to the text when info is shown
+    }
+
+    // shows the image of the CD when mouse is hovered over
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: 1s ease;
+        background-color: black;
+        background-image: url(../ma2_images/cd.png);
+        background-size: 100%;
+    }
+
+    .album:hover .overlay {
+        opacity: .9;
+    }
+
+    .current_album:hover .overlay {
+        opacity: .9;
+    }
+    
+    // format of the album info when shown
+    .album_info_name {
+        position: relative;
+        font-family: $info;
+        text-align: center;
+        color: black;
+        padding: 0px 50px 0px 50px;
+        font-size: 1.5vh;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .album_info_artist {
+        position: relative;
+        font-family: $info;
+        text-align: center;
+        color: black;
+        padding: 0px 50px 0px 50px;
+        font-size: 1.5vh;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    // format for the images of the albums
+    img {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+}
+
+// mixin for the format of the tracklist and its behvaior
+@mixin tracklist {
+    .tracklist {
+        position: relative;
+        width: 100%;
+    }
+
+    .tracks {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    ol.tracks {
+        color: white;
+        display: block;
+        font-family: $titles;
+        margin: 0px;
+        padding: 0px;
+        font-size: 100%;
+        text-align: center;
+        list-style-type: none;
+        overflow: auto;
+    }
+
+    li {
+        background-color: black;
+        padding: 1px;
+        border: 3px solid rgb(190, 190, 190);
+    }
+    
+    // changes the color of the font and its background when hovered over
+    li:hover {
+        color: black;
+        background-color: rgb(211, 211, 211);
+    }
+}
+
+// mixin for the format of the media buttons and their behavior
+@mixin media_buttons {
+    // adds an outset border to look like a button
+    .previous {
+        border: outset;
+    }
+
+    .play {
+        border: outset;
+    }
+
+    .pause {
+        border: outset;
+    }
+
+    .next {
+        border: outset;
+    }
+
+    // changes the color of the button when mouse is hovered over
+    .previous:hover {
+        background-color: rgb(211, 211, 211);
+    }
+
+    .play:hover {
+        background-color: rgb(211, 211, 211);
+    }
+
+    .pause:hover {
+        background-color: rgb(211, 211, 211);
+    }
+
+    .next:hover {
+        background-color: rgb(211, 211, 211);
+    }
+}
+
+// mixin for format of footer information
+@mixin footer {
+    .footer_info {
+        font-family: $info; // uses variable $titles
+        font-size: 1vw;
+        text-align: center;
+        color: white;
+        background-color: black;
+    }
+}
